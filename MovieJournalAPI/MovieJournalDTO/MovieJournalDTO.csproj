@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{166654ED-DCB5-4367-B104-74087AE28B9F}</ProjectGuid>
+    <ProjectGuid>{73D632EA-079D-45D7-B952-CE82EAB8C62C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MovieJournalDAL</RootNamespace>
-    <AssemblyName>MovieJournalDAL</AssemblyName>
+    <RootNamespace>MovieJournalDTO</RootNamespace>
+    <AssemblyName>MovieJournalDTO</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,18 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\MovieContext.cs" />
-    <Compile Include="Context\MovieDBInitialize.cs" />
-    <Compile Include="Model\MovieOnList.cs" />
-    <Compile Include="Model\Profile.cs" />
+    <Compile Include="Converter\AbstractDTOConverter.cs" />
+    <Compile Include="Converter\MovieOnListConverter.cs" />
+    <Compile Include="Converter\ProfileConverter.cs" />
+    <Compile Include="ModelDTO\MovieOnListDTO.cs" />
+    <Compile Include="ModelDTO\ProfileDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\ProfileRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieJournalDAL\MovieJournalDAL.csproj">
+      <Project>{166654ed-dcb5-4367-b104-74087ae28b9f}</Project>
+      <Name>MovieJournalDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,36 +8,36 @@ using MovieJournalDAL.Model;
 
 namespace MovieJournalDAL.Repository
 {
-    public class MovieRepository : IRepository<Movie>
+    public class ProfileRepository : IRepository<Profile>
     {
-        public IList<Movie> ReadAll()
+        public IList<Profile> ReadAll()
         {
             using (var ctx = new MovieContext())
             {
-                return ctx.Movies.Include("Title").ToList();
+                return ctx.Profiles.Include("Title").ToList();
             }
         }
-        public Movie Get(int id)
+        public Profile Get(int id)
         {
             using (var ctx = new MovieContext())
             {
-                return ctx.Movies.Include("Title").FirstOrDefault();
+                return ctx.Profiles.Include("Title").FirstOrDefault();
             }
         }
-        public void Add(Movie movie)
+        public void Add(Profile movie)
         {
             using (var ctx = new MovieContext())
             {
-                ctx.Movies.Add(movie);
+                ctx.Profiles.Add(movie);
                 ctx.SaveChanges();
             }
         }
-        public void Edit(Movie movie)
+        public void Edit(Profile movie)
         {
             using (var ctx = new MovieContext())
             {
-                Movie m = ctx.Movies.Where(x => x.Id == movie.Id).First();
-                m.Title = movie.Title;
+                Profile m = ctx.Profiles.Where(x => x.Id == movie.Id).First(); 
+                //insert something here
                
               
                 ctx.SaveChanges();
@@ -47,13 +47,12 @@ namespace MovieJournalDAL.Repository
         {
             using (var ctx = new MovieContext())
             {
-                Movie m = ctx.Movies.Where(x => x.Id == id).First();
+                Profile m = ctx.Profiles.Where(x => x.Id == id).First();
                 if (m != null)
-                    ctx.Movies.Remove(m);
+                    ctx.Profiles.Remove(m);
                 ctx.SaveChanges();
             }
         }
-
     }
 }
 

@@ -11,11 +11,11 @@ namespace MovieJournalDAL.Context
     public class MovieContext : DbContext
     {
 
-        public MovieContext() : base("MovieJournal")
+        public MovieContext() : base("MovieJournalDb")
         {
             Database.SetInitializer(new MovieDBInitialize());
 
-            //Add this line to make json conversin happy.
+            //Add this line to make JSON conversion happy.
             Configuration.ProxyCreationEnabled = false;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -24,8 +24,8 @@ namespace MovieJournalDAL.Context
             //modelBuilder.Entity<Movie>().HasMany(g => g.Genres).WithMany();
         }
         //OnModelCreating States exactly which lists the tables are connected as many-to-many through
-        public DbSet<Movie> Movies { get; set; }
-       
+        public DbSet<MovieOnList> MoviesOnList { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
 
 

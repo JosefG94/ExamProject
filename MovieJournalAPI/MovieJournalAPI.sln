@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalDAL", "MovieJou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalTest", "MovieJournalTest\MovieJournalTest.csproj", "{A9343DDE-39FB-4837-B2D5-96B49F5D9486}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalDTO", "MovieJournalDTO\MovieJournalDTO.csproj", "{73D632EA-079D-45D7-B952-CE82EAB8C62C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D632EA-079D-45D7-B952-CE82EAB8C62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D632EA-079D-45D7-B952-CE82EAB8C62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D632EA-079D-45D7-B952-CE82EAB8C62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D632EA-079D-45D7-B952-CE82EAB8C62C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
