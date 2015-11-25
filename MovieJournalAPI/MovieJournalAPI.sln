@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalAPI", "MovieJournalAPI\MovieJournalAPI.csproj", "{B627CBF0-4627-44B0-9C6E-2398599AB338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalDAL", "MovieJournalDAL\MovieJournalDAL.csproj", "{166654ED-DCB5-4367-B104-74087AE28B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalTest", "MovieJournalTest\MovieJournalTest.csproj", "{A9343DDE-39FB-4837-B2D5-96B49F5D9486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B627CBF0-4627-44B0-9C6E-2398599AB338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B627CBF0-4627-44B0-9C6E-2398599AB338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B627CBF0-4627-44B0-9C6E-2398599AB338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166654ED-DCB5-4367-B104-74087AE28B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166654ED-DCB5-4367-B104-74087AE28B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166654ED-DCB5-4367-B104-74087AE28B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166654ED-DCB5-4367-B104-74087AE28B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9343DDE-39FB-4837-B2D5-96B49F5D9486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
