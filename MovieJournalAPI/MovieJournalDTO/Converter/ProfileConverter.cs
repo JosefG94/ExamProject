@@ -26,7 +26,10 @@ namespace MovieJournalDTO.Converter
                     {
                         Id = mol.Id,
                         Rating = mol.Rating,
-                        Review = mol.Review
+                        Review = mol.Review,
+                        Watched = mol.Watched,
+                        Profile = mol.Profile
+
                     });
                 }
             }

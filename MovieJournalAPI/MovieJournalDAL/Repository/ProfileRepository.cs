@@ -10,7 +10,7 @@ namespace MovieJournalDAL.Repository
 {
     public class ProfileRepository : IRepository<Profile>
     {
-        public IList<Profile> ReadAll()
+        public IEnumerable<Profile> ReadAll()
         {
             using (var ctx = new MovieContext())
             {

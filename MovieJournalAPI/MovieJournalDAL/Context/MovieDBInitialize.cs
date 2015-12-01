@@ -21,9 +21,9 @@ namespace MovieJournalDAL.Context
 
 
             context.MoviesOnList.Add(new MovieOnList() { Id = 1, Rating = 5, Review = "Awsome", Watched = true, Profile = p1 });
-            context.MoviesOnList.Add(new MovieOnList() { Id = 2, Rating = 3, Review = "Shiit", Watched = false, Profile = p1 });
-            context.MoviesOnList.Add(new MovieOnList() { Id = 3, Rating = 4, Review = "Good", Watched = true, Profile = p1 });
-            context.MoviesOnList.Add(new MovieOnList() { Id = 4, Rating = 1, Review = "qqqq", Watched = false, Profile = p1 });
+            context.MoviesOnList.Add(new MovieOnList() { Id = 2, Rating = 3, Review = "Shiit", Watched = false, Profile = p2 });
+            context.MoviesOnList.Add(new MovieOnList() { Id = 3, Rating = 4, Review = "Good", Watched = true, Profile = p3 });
+           
 
             base.Seed(context);
         }

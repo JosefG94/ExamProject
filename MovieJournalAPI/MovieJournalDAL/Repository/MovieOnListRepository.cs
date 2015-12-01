@@ -10,7 +10,7 @@ namespace MovieJournalDAL.Repository
 {
    public class MovieOnListRepository
     {
-        public IList<MovieOnList> ReadAll()
+        public IEnumerable<MovieOnList> ReadAll()
         {
             using (var ctx = new MovieContext())
             {

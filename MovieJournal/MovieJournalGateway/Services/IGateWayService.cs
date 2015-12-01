@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieJournalDAL.Repository
+namespace MovieJournalGateway.Services
 {
-    public interface IRepository<T>
+    public interface IGateWayService<T>
     {
         IEnumerable<T> ReadAll();
 
         T Get(int id);
 
-        void Add(T t);
+        T Add(T t);
 
-        void Delete(int id);
+        T Delete(int id);
 
-        void Edit(T t);
+        T Edit(T t);
     }
 }
