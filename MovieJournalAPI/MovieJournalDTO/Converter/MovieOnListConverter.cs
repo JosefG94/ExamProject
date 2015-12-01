@@ -16,7 +16,12 @@ namespace MovieJournalDTO.Converter
             {
                 Id = item.Id,
                 Rating = item.Rating,
-                Review = item.Review
+                Review = item.Review,
+                MovieId = item.MovieId,
+                Profile = item.Profile,
+                ProfileId = item.ProfileId,
+                Watched = item.Watched
+                
             };
             return dto;
         }

@@ -11,10 +11,16 @@ namespace MovieJournalDAL.Model
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public virtual int MovieId { get; set; }
+        public int MovieId { get; set; }
         [DataMember]
         public int Rating { get; set; }
         [DataMember]
         public string Review { get; set; }
+        [DataMember]
+        public bool Watched { get; set; }
+        [DataMember]
+        public virtual Profile Profile { get; set; }
+        [DataMember]
+        public int ProfileId { get; set; }
     }
 }
