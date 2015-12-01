@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -284,6 +285,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieJournalDAL\MovieJournalDAL.csproj">
+      <Project>{166654ed-dcb5-4367-b104-74087ae28b9f}</Project>
+      <Name>MovieJournalDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieJournalDTO\MovieJournalDTO.csproj">
+      <Project>{73d632ea-079d-45d7-b952-ce82eab8c62c}</Project>
+      <Name>MovieJournalDTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

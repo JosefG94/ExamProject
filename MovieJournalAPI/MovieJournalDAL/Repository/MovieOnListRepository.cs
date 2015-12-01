@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDAL.Repository
 {
-    class MovieOnListRepository
+   public class MovieOnListRepository
     {
         public IList<MovieOnList> ReadAll()
         {
