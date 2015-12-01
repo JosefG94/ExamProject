@@ -44,5 +44,10 @@ namespace MovieJournalDTO.Converter
             }
             return dto;
         }
+
+        public Profile Convert(ProfileDTO profileDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
