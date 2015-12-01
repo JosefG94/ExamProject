@@ -181,6 +181,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieJournalDTO\MovieJournalDTO.csproj">
+      <Project>{9ea45315-c6f1-471f-983b-e3f42de30e5d}</Project>
+      <Name>MovieJournalDTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieJournalGateway\MovieJournalGateway.csproj">
       <Project>{6ee71c6b-8a94-4d7d-bc11-fdd0be7206ee}</Project>
       <Name>MovieJournalGateway</Name>

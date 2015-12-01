@@ -9,7 +9,7 @@ namespace MovieJournalGateway
 {
     public class Facade
     {
-          private MovieOnListGateWayService GetMovieOnListGateway;
+        //  private MovieOnListGateWayService GetMovieOnListGateway;
 
         public MovieOnListGateWayService GetMovieOnListRepository()
         {
@@ -17,7 +17,7 @@ namespace MovieJournalGateway
 
         }
 
-         private ProfileGateWayService GetProfileGateway;
+      //   private ProfileGateWayService GetProfileGateway;
 
         public ProfileGateWayService GetProfileGateWayService()
         {
