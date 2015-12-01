@@ -24,7 +24,7 @@ namespace MovieJournalDAL.Context
             //modelBuilder.Entity<Movie>().HasMany(g => g.Genres).WithMany();
         }
         //OnModelCreating States exactly which lists the tables are connected as many-to-many through
-        public DbSet<MovieOnList> MoviesOnLists { get; set; }
+        public DbSet<MovieOnList> MoviesOnList { get; set; }
         public DbSet<Profile> Profiles { get; set; }
     }
 }
