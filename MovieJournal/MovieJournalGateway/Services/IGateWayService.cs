@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieJournalGateway.Services
 {
-    public interface IGateWayService<T>
+    interface IGateWayService<T>
     {
         IEnumerable<T> ReadAll();
 
