@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDTO.Converter
 {
-    public class ProfileConverter : AbstractDTOConverter<Profile, ProfileDTO>
+    public class ProfileDTOConverter : AbstractDTOConverter<Profile, ProfileDTO>
     {
         public override ProfileDTO Convert(Profile item)
         {
@@ -17,7 +17,7 @@ namespace MovieJournalDTO.Converter
                 Id = item.Id,
                 Name = item.Name
             };
-            if(item.MovieOnList != null)
+            if (item.MovieOnList != null)
             {
                 dto.MoviesOnList = new List<MovieOnListDTO>();
                 foreach (var mol in item.MovieOnList)
@@ -33,7 +33,7 @@ namespace MovieJournalDTO.Converter
                     });
                 }
             }
-            if(item.Profiles != null)
+            if (item.Profiles != null)
             {
                 dto.Profiles = new List<ProfileDTO>();
                 foreach (var profile in item.Profiles)
@@ -46,11 +46,6 @@ namespace MovieJournalDTO.Converter
                 }
             }
             return dto;
-        }
-
-        public Profile Convert(ProfileDTO profileDTO)
-        {
-            throw new NotImplementedException();
         }
     }
 }

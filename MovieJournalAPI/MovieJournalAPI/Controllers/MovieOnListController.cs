@@ -27,7 +27,7 @@ namespace MovieJournalAPI.Controllers
         public IEnumerable<MovieOnListDTO> GetAll()
         {
             var movieOnList = facade.GetMovieOnListRepository().ReadAll();
-            return new MovieOnListConverter().Convert(movieOnList);
+            return new MovieOnListDTOConverter().Convert(movieOnList);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace MovieJournalAPI.Controllers
             MovieOnListDTO movieOnListDTO = null;
             if (movieOnList != null)
             {
-                movieOnListDTO = new MovieOnListConverter().Convert(movieOnList);
+                movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
                 return Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
@@ -55,11 +55,11 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="movieOnList"></param>
         /// <returns></returns>
-        public HttpResponseMessage Post(MovieOnListDTO movieOnListDTO)
+        public HttpResponseMessage Post(MovieOnList movieOnList)
         {
             try
             {
-                var movieOnList = new MovieOnListConverter().Convert(movieOnListDTO);
+                var movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
                 facade.GetMovieOnListRepository().Add(movieOnList);
 
                 var response = Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.Created, movieOnListDTO);
@@ -81,11 +81,11 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="movieOnList"></param>
         /// <returns></returns>
-        public HttpResponseMessage Put(MovieOnListDTO movieOnListDTO)
+        public HttpResponseMessage Put(MovieOnList movieOnList)
         {
             try
             {
-                MovieOnList movieOnList = new MovieOnListConverter().Convert(movieOnListDTO);
+                var movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
                 facade.GetMovieOnListRepository().Edit(movieOnList);
                 var response = Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
                 var uri = Url.Link("GetMovieOnListById", new { movieOnList.Id });

@@ -25,7 +25,7 @@ namespace MovieJournalAPI.Controllers
         public IEnumerable<ProfileDTO> GetAll()
         {
             var profile =  facade.GetProfileRepository().ReadAll();
-            return new ProfileConverter().Convert(profile);
+            return new ProfileDTOConverter().Convert(profile);
         }
         /// <summary>
         /// Will get a specific Profile found by the Id
@@ -38,8 +38,8 @@ namespace MovieJournalAPI.Controllers
             ProfileDTO profileDTO = null;
             if (profile != null)
             {
-                profileDTO = new ProfileConverter().Convert(profile);
-                return Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
+                profileDTO = new ProfileDTOConverter().Convert(profile);
+                return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
             {
@@ -54,11 +54,11 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="profile"></param>
         /// <returns></returns>
-        public HttpResponseMessage Post(ProfileDTO profileDTO)
+        public HttpResponseMessage Post(Profile profile)
         {
             try
             {
-                var profile = new ProfileConverter().Convert(profileDTO);
+                var profileDTO = new ProfileDTOConverter().Convert(profile);
                 facade.GetProfileRepository().Add(profile);
 
                 var response = Request.CreateResponse<ProfileDTO>(HttpStatusCode.Created, profileDTO);
@@ -80,11 +80,11 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="profile"></param>
         /// <returns></returns>
-        public HttpResponseMessage Put(ProfileDTO profileDTO)
+        public HttpResponseMessage Put(Profile profile)
         {
             try
             {
-                Profile profile = new ProfileConverter().Convert(profileDTO);
+                var profileDTO = new ProfileDTOConverter().Convert(profile);
                 facade.GetProfileRepository().Edit(profile);
                 var response = Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
                 var uri = Url.Link("GetProfileById", new { profile.Id });
