@@ -1,14 +1,17 @@
-﻿@{
+﻿@model IEnumerable<MovieJournalDTO.Movie>
+@{
     ViewBag.Title = "Home Page";
 }
-
 <div class="row">
+
+    @foreach(var item in Model)
+    {
 <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
         <img src="https://image.tmdb.org/t/p/w185/D6e8RJf2qUstnfkTslTXNTUAlT.jpg">
         <div class="caption">
-            <center><h3>Thumbnail label</h3></center>
-            <p>...</p>
+            <center><h3>@Html.DisplayFor(modelItem => item.Title)</h3></center>
+            <p>@Html.DisplayFor(modelItem => item.Overview)</p>
             <center>
                 <p>
                     <a href="#" class="btn btn-primary" role="button">Details</a>
@@ -18,6 +21,6 @@
         </div>
     </div>
 </div>
-
+    }
 
 </div>
