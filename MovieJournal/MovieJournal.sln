@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalGateway", "Movi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieJournalTest", "MovieJournalTest\MovieJournalTest.csproj", "{7C81433C-4DFB-4201-A0B2-2EB40AF9CBFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMDBGateway", "TMDBGateway\TMDBGateway.csproj", "{F181CFF2-19DE-4A36-8DF6-F97D76CF62E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7C81433C-4DFB-4201-A0B2-2EB40AF9CBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C81433C-4DFB-4201-A0B2-2EB40AF9CBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C81433C-4DFB-4201-A0B2-2EB40AF9CBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F181CFF2-19DE-4A36-8DF6-F97D76CF62E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F181CFF2-19DE-4A36-8DF6-F97D76CF62E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F181CFF2-19DE-4A36-8DF6-F97D76CF62E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F181CFF2-19DE-4A36-8DF6-F97D76CF62E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
