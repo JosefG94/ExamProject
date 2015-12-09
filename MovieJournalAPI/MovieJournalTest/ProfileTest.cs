@@ -1,13 +1,14 @@
 ﻿using MovieJournalDAL;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
 
 namespace MovieJournalTest
 {
+
     [TestFixture]
     public class ProfileTest
     {
@@ -20,10 +21,9 @@ namespace MovieJournalTest
 
             var pro = facade.GetProfileRepository().Get(1);
 
-            Assert.AreEqual(pro.Id, "1");
-            Assert.AreEqual(pro.Name, "Abdirahman");
-            Assert.AreEqual(pro.MovieOnList, "102");
-
+            Assert.AreEqual(pro.Id, "2");
+            Assert.AreEqual(pro.Name, "Pote Lolle");
+          
         }
     }
 }
