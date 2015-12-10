@@ -53,5 +53,15 @@ namespace TMDBGateway.TMDBServices
             }
         }
 
+        public MovieList SearchMovies(string query)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    client.GetAsync("https://api.themoviedb.org/3/search/movie?query="+query+"&api_key=" + APIKey).Result;
+                return response.Content.ReadAsAsync<MovieList>().Result;
+            }
+        }
+
     }
 }

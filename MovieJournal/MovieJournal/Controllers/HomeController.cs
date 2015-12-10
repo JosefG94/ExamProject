@@ -25,6 +25,13 @@ namespace MovieJournal.Controllers
             var movie = tmdbGW.GetMovie(id);
             return View(movie);
         }
+        
+        [HttpGet]
+        public ActionResult Search(string query)
+        {
+            var movielist = tmdbGW.SearchMovies(query);
+            return View(movielist);
+        }
 
 
     }

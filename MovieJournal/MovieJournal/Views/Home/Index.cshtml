@@ -7,7 +7,7 @@
     @foreach(var item in Model.Movies)
     {
 <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
+    <div class="thumbnail" style="box-shadow: 3px 3px 5px #888888;">
         <img src="@Html.DisplayFor(modelItem => item.Image)">
         <div class="caption">
             <center><h3 style="min-height:60px;height:60px;">@Html.DisplayFor(modelItem => item.ShortTitle)</h3></center>
