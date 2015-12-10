@@ -43,6 +43,7 @@ namespace TMDBGateway.TMDBServices
             }
         }
 
+        // Returns data from one movie
         public Movie GetMovie(int id)
         {
             using (var client = new HttpClient())
@@ -53,6 +54,7 @@ namespace TMDBGateway.TMDBServices
             }
         }
 
+        // Searches for movies
         public MovieList SearchMovies(string query)
         {
             using (var client = new HttpClient())
