@@ -17,6 +17,11 @@ namespace MovieJournalDTO
     }
     public class Movie
     {
+        // String reference used for "Image" property"
+        private string Path;
+        // Start-link of every image.
+        private string imgLink = "https://image.tmdb.org/t/p/w185";
+
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("original_title")]
@@ -26,6 +31,39 @@ namespace MovieJournalDTO
         [JsonProperty("vote_average")]
         public double Rating { get; set; }
         [JsonProperty("poster_path")]
-        public string Image { get; set; }
+        public string Image
+        {
+            get
+            {
+                return Path;
+            }
+            set
+            {
+                Path = imgLink + value;
+            }
+        }
+
+        // Shortening of the title for the bootstrap thumbnails
+        public string ShortTitle
+        {
+            get
+            {
+                int max = 30;
+                string title;
+                title = (Title.Length <= max) ? Title : Title.Substring(0, max)+"..";
+                return title;
+            }
+        }
+        // Shortening of the overview for the bootstrap thumbnails
+        public string ShortOverview
+        {
+            get
+            {
+                int max = 80;
+                string overview;
+                overview = (Overview.Length <= max) ? Overview : Overview.Substring(0, max) + "...";
+                return overview;
+            }
+        }
     }
 }

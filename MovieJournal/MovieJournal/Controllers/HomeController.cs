@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TMDBGateway.TMDBServices;
+using MovieJournalDTO;
 
 namespace MovieJournal.Controllers
 {
     public class HomeController : Controller
     {
-        TMDBGateWayService hej = new TMDBGateWayService();
+        TMDBGateWayService tmdbGW = TMDBGateWayService.Instance;
         public ActionResult Index()
         {
-            return View(hej.GetPopular());
+            return View(tmdbGW.GetPopular());
+        }
+
+        [HttpGet]
+        public ActionResult GetMovie(int id)
+        {
+            var movie = tmdbGW.GetMovie(id);
+            return View(movie);
         }
 
 
