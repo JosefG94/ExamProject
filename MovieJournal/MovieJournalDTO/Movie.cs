@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDTO
 {
-    [JsonArray]
-    public class Movies { public List<Movie> JSON; }
+    
+    public class MovieList
+    { 
+        [JsonProperty("page")]
+        public int Page { get; set; }
+        [JsonProperty("results")]
+        public List<Movie> Movies { get; set; }
+    }
     public class Movie
     {
         [JsonProperty("id")]

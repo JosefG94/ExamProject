@@ -16,13 +16,13 @@ namespace TMDBGateway.TMDBServices
         string APIKey = "1396960c122fb1696773a4d42f994866";
 
 
-        public IEnumerable<Movie> GetPopulasr()
+        public MovieList GetPopular()
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
                     client.GetAsync("http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key="+APIKey).Result;
-                return response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+                return response.Content.ReadAsAsync<MovieList>().Result;
             }
         }
 
