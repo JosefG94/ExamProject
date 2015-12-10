@@ -59,12 +59,27 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TMDBGatewayTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieJournalDTO\MovieJournalDTO.csproj">
+      <Project>{9ea45315-c6f1-471f-983b-e3f42de30e5d}</Project>
+      <Name>MovieJournalDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieJournalGateway\MovieJournalGateway.csproj">
+      <Project>{6ee71c6b-8a94-4d7d-bc11-fdd0be7206ee}</Project>
+      <Name>MovieJournalGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TMDBGateway\TMDBGateway.csproj">
+      <Project>{f181cff2-19de-4a36-8df6-f97d76cf62e6}</Project>
+      <Name>TMDBGateway</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

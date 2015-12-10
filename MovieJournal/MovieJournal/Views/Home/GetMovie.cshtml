@@ -4,14 +4,25 @@
     ViewBag.Title = "GetMovie";
 }
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
-            <!--Sidebar content-->
+<div class="container table-bordered">
+    <div class="row">
+        <div class="col-md-2">
+            <table>
+                <tr><img src="@Model.Image"></tr>
+                <tr><h4>@Model.Status</h4></tr>
+            </table>
         </div>
-        <div class="span10">
-            <!--Body content-->
+        <div class="col-md-10">
+                <h1>@Model.Title</h1>
+                <h3 style="color:gray;display: block;"> (@Model.Release.Substring(0, 4))</h3>
+                <h4> <span class="glyphicon glyphicon-star"></span> @Model.Rating/10</h4>
+                <h5>@Model.Overview</h5>
         </div>
     </div>
+
+    <a href="javascript:history.go(-1)" class="btn btn-warning" role="button">Back</a> |
+    <a href="#" class="btn btn-success" role="button">Add to list</a>
+    <br />
 </div>
+
 
