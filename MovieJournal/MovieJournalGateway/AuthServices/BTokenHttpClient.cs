@@ -13,7 +13,7 @@ using MovieJournalDTO.AuthModels;
 
 namespace MovieJournalGateway.AuthServices
 {
-    class BTokenHttpClient : HttpClient
+    public class BTokenHttpClient : HttpClient
     {
         public BTokenHttpClient()
         {
@@ -37,5 +37,4 @@ namespace MovieJournalGateway.AuthServices
             }
         }
     }
-
 }

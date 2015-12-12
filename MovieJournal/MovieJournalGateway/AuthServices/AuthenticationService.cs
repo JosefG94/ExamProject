@@ -19,7 +19,7 @@ namespace MovieJournalGateway.AuthServices
 
     public static AuthenticationService Instance
     {
-        get { return _instance ?? (_instance = new AuthenticationService(ConfigurationManager.AppSettings["WebApiUri"])); }
+        get { return _instance ?? (_instance = new AuthenticationService(ConfigurationManager.AppSettings["APIUri"])); }
     }
 
     public string BaseUri { get; private set; }
