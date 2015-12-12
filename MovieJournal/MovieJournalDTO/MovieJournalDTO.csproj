@@ -53,10 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthModels\RegisterModel.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieOnList.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AuthModels\UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
