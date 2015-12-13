@@ -24,7 +24,7 @@ namespace MovieJournalAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("TestAuthDatabase5", throwIfV1Schema: false)
+            : base("TestAuthDatabase6", throwIfV1Schema: false)
         {
         }
         public DbSet<MovieOnList> MoviesOnList { get; set; }

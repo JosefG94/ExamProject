@@ -61,7 +61,7 @@ namespace MovieJournalAPI.Controllers
 
             return new UserInfoViewModel
             {
-                Email = User.Identity.GetUserName(),
+                UserName = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
@@ -331,8 +331,8 @@ namespace MovieJournalAPI.Controllers
 
             var user = new ApplicationUser()
             {
-                UserName = model.Email, Email = model.Email,
-                Profile = new Profile {Name = model.FirstName+model.LastName, Email = model.Email }
+                UserName = model.UserName,
+                Profile = new Profile {Name = model.FirstName+model.LastName, UserName = model.UserName }
             };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);

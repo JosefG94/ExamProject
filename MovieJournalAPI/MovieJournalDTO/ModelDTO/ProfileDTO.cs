@@ -13,7 +13,7 @@ namespace MovieJournalDTO.ModelDTO
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string Email { get; set; }
+        public string UserName { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

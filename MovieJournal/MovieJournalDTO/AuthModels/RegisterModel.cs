@@ -9,8 +9,8 @@ namespace MovieJournalDTO.AuthModels
 {
     public class RegisterModel
     {
-        [Required, DataType(DataType.EmailAddress), MaxLength(256), Display(Name = "Email address")]
-        public string Email { get; set; }
+        [Required, MaxLength(256), Display(Name = "User name")]
+        public string UserName { get; set; }
 
         [Required, MaxLength(128), Display(Name = "First name")]
         public string FirstName { get; set; }
