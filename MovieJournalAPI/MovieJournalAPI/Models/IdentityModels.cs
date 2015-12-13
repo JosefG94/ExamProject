@@ -3,12 +3,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using MovieJournalDAL.Model;
+using System.Data.Entity;
 
 namespace MovieJournalAPI.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public virtual Profile Profile { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -21,10 +24,10 @@ namespace MovieJournalAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("TestAuthDatabase", throwIfV1Schema: false)
+            : base("TestAuthDatabase5", throwIfV1Schema: false)
         {
         }
-        
+        public DbSet<MovieOnList> MoviesOnList { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -15,7 +15,8 @@ namespace MovieJournalDTO.Converter
             var dto = new ProfileDTO()
             {
                 Id = item.Id,
-                Name = item.Name
+                Name = item.Name,
+                Email = item.Email
             };
             if (item.MovieOnList != null)
             {

@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using MovieJournalAPI.Models;
 using MovieJournalAPI.Providers;
 using MovieJournalAPI.Results;
+using MovieJournalDAL.Model;
 
 namespace MovieJournalAPI.Controllers
 {
@@ -328,7 +329,11 @@ namespace MovieJournalAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser()
+            {
+                UserName = model.Email, Email = model.Email,
+                Profile = new Profile {Name = model.FirstName+model.LastName, Email = model.Email }
+            };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

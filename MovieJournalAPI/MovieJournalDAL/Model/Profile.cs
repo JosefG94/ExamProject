@@ -14,6 +14,9 @@ namespace MovieJournalDAL.Model
         [Key]
         [DataMember]
         public int Id { get; set; }
+        [DataMember]
+        [Required]
+        public string Email { get; set; }
         [Required]
         [DataMember]
         public string Name { get; set; }

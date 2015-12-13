@@ -13,7 +13,7 @@ namespace MovieJournalDAL.Context
 
         public MovieContext() : base("MovieJournalDb")
         {
-            Database.SetInitializer(new MovieDBInitialize());
+          //  Database.SetInitializer(new MovieDBInitialize());
 
             //Add this line to make JSON conversion happy.
             Configuration.ProxyCreationEnabled = false;
