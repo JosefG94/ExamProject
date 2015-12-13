@@ -51,7 +51,14 @@
     </div>
     <br />
     <a href="javascript:history.go(-1)" class="btn btn-warning" role="button">Back</a> |
-    <a href="#" class="btn btn-success" role="button">Add to list</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="#" class="btn btn-success" role="button">Add to list</a>
+    }
+    else
+    {
+        <a href="#" class="btn btn-success disabled" role="button">Add to list</a>
+    }
     <br />
 </div>
 

@@ -32,7 +32,7 @@ namespace MovieJournal.Controllers
             try
             {
                 await aservice.PostAsync("/api/Account/Register", model);
-                return View("Registered");
+                return View("RegisterSuccessful");
             }
             catch (AuthenticationException ex)
             {
@@ -92,6 +92,14 @@ namespace MovieJournal.Controllers
 
                 throw;
             }
+        }
+
+        [Authorize]
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

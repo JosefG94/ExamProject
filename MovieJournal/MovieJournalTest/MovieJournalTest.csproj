@@ -59,7 +59,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AuthTest.cs" />
     <Compile Include="TMDBGatewayTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

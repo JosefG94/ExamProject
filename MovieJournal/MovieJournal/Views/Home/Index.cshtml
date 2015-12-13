@@ -15,7 +15,14 @@
             <center>
                 <p>
                     @Html.ActionLink("Details", "GetMovie", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <a href="#" class="btn btn-success" role="button">Add to list</a>
+                    }
+                    else
+                    {
+                        <a href="#" class="btn btn-success disabled" role="button">Add to list</a>
+                    }
                 </p>
             </center>
         </div>
