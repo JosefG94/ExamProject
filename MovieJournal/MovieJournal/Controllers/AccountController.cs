@@ -32,7 +32,7 @@ namespace MovieJournal.Controllers
             try
             {
                 await aservice.PostAsync("/api/Account/Register", model);
-                return View("RegisterSuccessful");
+                return View("RegisterSuccessful", model);
             }
             catch (AuthenticationException ex)
             {

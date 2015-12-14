@@ -40,7 +40,6 @@ namespace MovieJournalDAL.Repository
                 m.Id = profile.Id;
                 m.Name = profile.Name;
                 m.MovieOnList = profile.MovieOnList;
-                m.Profiles = profile.Profiles;
                 ctx.SaveChanges();
             }
         }

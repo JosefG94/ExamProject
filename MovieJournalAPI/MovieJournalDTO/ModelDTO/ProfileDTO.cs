@@ -18,7 +18,5 @@ namespace MovieJournalDTO.ModelDTO
         public string Name { get; set; }
         [DataMember]
         public virtual ICollection<MovieOnListDTO> MoviesOnList { get; set; }
-        [DataMember]
-        public virtual ICollection<ProfileDTO> Profiles { get; set; }
     }
 }

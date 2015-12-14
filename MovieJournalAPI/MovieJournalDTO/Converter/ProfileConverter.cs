@@ -34,18 +34,6 @@ namespace MovieJournalDTO.Converter
                     });
                 }
             }
-            if (item.Profiles != null)
-            {
-                dto.Profiles = new List<ProfileDTO>();
-                foreach (var profile in item.Profiles)
-                {
-                    dto.Profiles.Add(new ProfileDTO()
-                    {
-                        Id = item.Id,
-                        Name = item.Name
-                    });
-                }
-            }
             return dto;
         }
     }
