@@ -40,6 +40,8 @@ namespace MovieJournalAPI.Repository
                 ctx.SaveChanges();
             }
         }
+
+
         public void Delete(int id)
         {
             using (var ctx = new ApplicationDbContext())

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieJournalDAL.Context;
 
 namespace MovieJournalAPI.Repository
 {
@@ -21,6 +22,7 @@ namespace MovieJournalAPI.Repository
         }
 
         private ProfileRepository profileRepo;
+
 
         public ProfileRepository GetProfileRepository()
         {
