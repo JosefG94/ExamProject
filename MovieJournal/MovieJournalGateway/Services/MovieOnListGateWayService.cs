@@ -30,7 +30,7 @@ namespace MovieJournalGateway.Services
             }
         }
 
-        public IEnumerable<MovieOnList> GetByProfileId(int id)
+        public IEnumerable<MovieOnList> GetByuserName(string userName)
         {
             using (var client = new HttpClient())
             {

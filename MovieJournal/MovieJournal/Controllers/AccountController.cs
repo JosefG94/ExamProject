@@ -71,13 +71,13 @@ namespace MovieJournal.Controllers
                 Session["RedirectUrl"] = null;
                 var result = await aservice.AuthenticateAsync<SignInResult>(model.UserName, model.Password);
                 var userInfo = await aservice.GetAsync<UserModel>("/api/Account/UserInfo", result.AccessToken);
-       0         userInfo.Token = result.AccessToken;
+                userInfo.Token = result.AccessToken;
                 string json = JsonConvert.SerializeObject(userInfo);
 
                 FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), model.RememberMe, json, "/");
                 HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
                 Response.Cookies.Add(cookie);
-
+                //Request.Cookies();
                     return Redirect(redirectUrl ?? "/");
             }
             catch (AuthenticationException ex)

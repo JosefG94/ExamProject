@@ -14,9 +14,11 @@ namespace MovieJournal.Controllers
         
         public ActionResult Index()
         {
-            var userName = facade.GetProfileGateWayService().GetTEST();
-            var profile = facade.GetProfileGateWayService().GetByUserName(userName.UserName);
-            return View(facade.GetMovieOnListRepository().GetByProfileId(profile.Id));
+            // Gets username
+            var user = System.Threading.Thread.CurrentPrincipal;
+            var userName = user.Identity.Name;
+            // Returns view with the list of movies for the specific user with 'userName'
+            return View(facade.GetMovieOnListRepository().GetByProfileId(userName));
         }
     }
 }
