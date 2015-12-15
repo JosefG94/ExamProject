@@ -32,24 +32,33 @@ namespace MovieJournalAPI.Controllers
         }
 
         /// <summary>
+        /// Will get MovieOnLists for one profile from database.
+        /// </summary>
+        public IEnumerable<MovieOnListDTO> Get(int id)
+        {
+            var movieOnList = facade.GetMovieOnListRepository().ReadByProfileId(id);
+            return new MovieOnListDTOConverter().Convert(movieOnList);
+        }
+
+        /// <summary>
         /// Will get a specific MovieOnList found by the Id
         /// </summary>
         /// <param name="id"></param>
-        public HttpResponseMessage Get(int Id)
-        {
-            var movieOnList = facade.GetMovieOnListRepository().Get(Id);
-            MovieOnListDTO movieOnListDTO = null;
-            if (movieOnList != null)
-            {
-                movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
-                return Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
-            }
-            var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent(" MovieOnList not found.")
-            };
-            throw new HttpResponseException(response);
-        }
+        //public HttpResponseMessage Get(int Id)
+        //{
+        //    var movieOnList = facade.GetMovieOnListRepository().Get(Id);
+        //    MovieOnListDTO movieOnListDTO = null;
+        //    if (movieOnList != null)
+        //    {
+        //        movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
+        //        return Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
+        //    }
+        //    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+        //    {
+        //        Content = new StringContent(" MovieOnList not found.")
+        //    };
+        //    throw new HttpResponseException(response);
+        //}
 
         /// <summary>
         /// Creates a MovieOnList in the Database

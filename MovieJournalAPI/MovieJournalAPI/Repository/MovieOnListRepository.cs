@@ -17,6 +17,14 @@ namespace MovieJournalDAL.Repository
                 return ctx.MoviesOnList.Include(x => x.Profile).ToList();
             }
         }
+
+        public IEnumerable<MovieOnList> ReadByProfileId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.MoviesOnList.Where(x => x.ProfileId == id).Include(x => x.Profile).ToList();
+            }
+        }
         public MovieOnList Get(int id)
         {
             using (var ctx = new ApplicationDbContext())

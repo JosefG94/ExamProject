@@ -489,9 +489,8 @@
         </member>
         <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Get(System.Int32)">
             <summary>
-            Will get a specific MovieOnList found by the Id
+            Will get MovieOnLists for one profile from database.
             </summary>
-            <param name="id"></param>
         </member>
         <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Post(MovieJournalDAL.Model.MovieOnList)">
             <summary>
