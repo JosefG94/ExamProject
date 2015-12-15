@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
 <div class="row">
 
     @foreach(var item in Model.Movies)
@@ -17,7 +18,7 @@
                     @Html.ActionLink("Details", "GetMovie", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <a href="#" class="btn btn-success" role="button">Add to list</a>
+                    @Html.ActionLink("Add", "AddMovieOnList", new { movieid = item.Id }, new { @class = "btn btn-success" })
                     }
                     else
                     {

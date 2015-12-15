@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using TMDBGateway.TMDBServices;
 using MovieJournalDTO;
+using MovieJournalGateway;
 
 namespace MovieJournal.Controllers
 {
     public class HomeController : Controller
     {
         TMDBGateWayService tmdbGW = TMDBGateWayService.Instance;
+        Facade facade = new Facade();
         public ActionResult Index()
         {
             return View(tmdbGW.GetPopular());
@@ -32,7 +34,34 @@ namespace MovieJournal.Controllers
             var movielist = tmdbGW.SearchMovies(query);
             return View(movielist);
         }
+        
+        
+        public ActionResult AddMovieOnList(int movieid)
+        {
+            //Finds ProfileId for the logged on user
+            var user = System.Threading.Thread.CurrentPrincipal;
+            var userName = user.Identity.Name;
+            var profile = facade.GetProfileGateWayService().GetByUserName(userName);
 
+            // Checks if movie is already in users movie journal
+            var moviesonlist = facade.GetMovieOnListRepository().GetByProfileId(profile.Id);
+            Boolean movieExists = false;
+            if(moviesonlist!=null)
+            foreach(var item in moviesonlist)
+            {
+                    if (item.MovieId == movieid)
+                        movieExists = true; break;
+            }
+
+            if (movieExists)
+            {
+                var addmovie = new MovieOnList() { MovieId = movieid, Rating = 0,Review="", Profile=profile,Watched=false};
+                facade.GetMovieOnListRepository().Add(addmovie);
+                
+            }
+            return RedirectToAction("Index");
+
+        }
 
     }
 }
