@@ -13,6 +13,7 @@ using System.Data.Entity;
 using System.Net.Http;
 using System.Net;
 using MovieJournalDAL.Model;
+using MovieJournalAPI.Repository;
 
 namespace MovieJournalAPI.Controllers
 {

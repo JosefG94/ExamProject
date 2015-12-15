@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MovieJournalDAL.Context;
 
-namespace MovieJournalDAL
+namespace MovieJournalAPI.Repository
 {
     public class Facade
     {

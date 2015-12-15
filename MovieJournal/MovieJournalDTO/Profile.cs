@@ -13,8 +13,6 @@ namespace MovieJournalDTO
         public string Name { get; set; }
 
         public virtual ICollection<MovieOnList> MovieOnList { get; set; }
-
-        public virtual ICollection<Profile> Profiles { get; set; }
     }
 }
 

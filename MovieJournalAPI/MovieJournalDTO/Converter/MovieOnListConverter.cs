@@ -19,7 +19,6 @@ namespace MovieJournalDTO.Converter
                 Review = item.Review,
                 MovieId = item.MovieId,
                 Profile = item.Profile,
-                ProfileId = item.ProfileId,
                 Watched = item.Watched
                 
             };

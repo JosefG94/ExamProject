@@ -15,7 +15,8 @@ namespace MovieJournalDTO.Converter
             var dto = new ProfileDTO()
             {
                 Id = item.Id,
-                Name = item.Name
+                Name = item.Name,
+                UserName = item.UserName
             };
             if (item.MovieOnList != null)
             {
@@ -28,20 +29,7 @@ namespace MovieJournalDTO.Converter
                         Rating = mol.Rating,
                         Review = mol.Review,
                         Watched = mol.Watched,
-                        Profile = mol.Profile
 
-                    });
-                }
-            }
-            if (item.Profiles != null)
-            {
-                dto.Profiles = new List<ProfileDTO>();
-                foreach (var profile in item.Profiles)
-                {
-                    dto.Profiles.Add(new ProfileDTO()
-                    {
-                        Id = item.Id,
-                        Name = item.Name
                     });
                 }
             }

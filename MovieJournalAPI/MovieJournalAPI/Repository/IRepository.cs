@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieJournalDAL.Repository
+namespace MovieJournalAPI.Repository
 {
     public interface IRepository<T>
     {
