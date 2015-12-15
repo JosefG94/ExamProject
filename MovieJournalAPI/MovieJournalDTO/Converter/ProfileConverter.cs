@@ -29,7 +29,6 @@ namespace MovieJournalDTO.Converter
                         Rating = mol.Rating,
                         Review = mol.Review,
                         Watched = mol.Watched,
-                        Profile = mol.Profile
 
                     });
                 }

@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MovieJournalDAL.Context;
 using MovieJournalDAL.Model;
+using MovieJournalAPI.Models;
 
-namespace MovieJournalDAL.Repository
+namespace MovieJournalAPI.Repository
 {
     public class ProfileRepository : IRepository<Profile>
     {
         public IEnumerable<Profile> ReadAll()
         {
-            using (var ctx = new MovieContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 return ctx.Profiles.ToList();
             }
         }
         public Profile Get(int id)
         {
-            using (var ctx = new MovieContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 return ctx.Profiles.Where(x => x.Id == id).FirstOrDefault();
             }
         }
         public void Add(Profile profile)
         {
-            using (var ctx = new MovieContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ctx.Profiles.Add(profile);
                 ctx.SaveChanges();
@@ -34,7 +31,7 @@ namespace MovieJournalDAL.Repository
         }
         public void Edit(Profile profile)
         {
-            using (var ctx = new MovieContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 Profile m = ctx.Profiles.Where(x => x.Id == profile.Id).First();
                 m.Id = profile.Id;
@@ -45,7 +42,7 @@ namespace MovieJournalDAL.Repository
         }
         public void Delete(int id)
         {
-            using (var ctx = new MovieContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 Profile m = ctx.Profiles.Where(x => x.Id == id).First();
                 if (m != null)

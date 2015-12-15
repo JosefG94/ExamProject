@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Data.Entity;
-using MovieJournalDAL.Repository;
-using MovieJournalDAL;
 using MovieJournalDAL.Model;
 using MovieJournalDTO.Converter;
 using MovieJournalDTO.ModelDTO;
-using MovieJournalDTO;
+using MovieJournalAPI.Repository;
 
 namespace MovieJournalAPI.Controllers
 {

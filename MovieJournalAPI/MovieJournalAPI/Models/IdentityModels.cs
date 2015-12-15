@@ -29,6 +29,7 @@ namespace MovieJournalAPI.Models
         {
             Database.SetInitializer(new MovieJournalDBInitialize());
         }
+        public DbSet<Profile> Profiles { get; set; }
         public DbSet<MovieOnList> MoviesOnList { get; set; }
         public static ApplicationDbContext Create()
         {
