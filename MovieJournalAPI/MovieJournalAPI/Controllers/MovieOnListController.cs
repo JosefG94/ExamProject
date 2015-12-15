@@ -75,8 +75,6 @@ namespace MovieJournalAPI.Controllers
                 facade.GetMovieOnListRepository().Add(movieOnList);
 
                 var response = Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.Created, movieOnListDTO);
-                var uri = Url.Link("GetMovieOnListById", new { movieOnList.Id });
-                response.Headers.Location = new Uri(uri);
                 return response;
             }
             catch (Exception)

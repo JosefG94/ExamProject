@@ -50,12 +50,15 @@ namespace MovieJournal.Controllers
             foreach(var item in moviesonlist)
             {
                     if (item.MovieId == movieid)
-                        movieExists = true; break;
+                    {
+                        movieExists = true;
+                        break;
+                    }
             }
 
-            if (movieExists)
+            if (!movieExists)
             {
-                var addmovie = new MovieOnList() { MovieId = movieid, Rating = 0,Review="", Profile=profile,Watched=false};
+                var addmovie = new MovieOnList() { MovieId = movieid, Rating = 0,Review="", Profile=profile, ProfileId=profile.Id, Watched=false};
                 facade.GetMovieOnListRepository().Add(addmovie);
                 
             }
