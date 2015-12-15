@@ -67,9 +67,9 @@ namespace MovieJournalAPI.Models
                 userManager.AddToRole(CreateAdminUser.Id, "Admin");
 
                 // Creates movies to the Admin user
-                context.MoviesOnList.Add(new MovieOnList() { Id = 1, MovieId = 140607, Rating = 5, Review = "Awsome", Watched = true, Profile = AdminProfile });
-                context.MoviesOnList.Add(new MovieOnList() { Id = 2, MovieId = 102899, Rating = 3, Review = "Shiit", Watched = false, Profile = AdminProfile });
-                context.MoviesOnList.Add(new MovieOnList() { Id = 3, MovieId = 87101, Rating = 4, Review = "Good", Watched = true, Profile = AdminProfile });
+                context.MoviesOnList.Add(new MovieOnList() { Id = 1, MovieId = 140607, Rating = 5, Review = "Awsome", Watched = true, Profile = AdminProfile});
+                context.MoviesOnList.Add(new MovieOnList() { Id = 2, MovieId = 102899, Rating = 3, Review = "Shiit", Watched = false, Profile = AdminProfile});
+                context.MoviesOnList.Add(new MovieOnList() { Id = 3, MovieId = 87101, Rating = 4, Review = "Good", Watched = true, Profile = AdminProfile});
 
 
                 base.Seed(context);
