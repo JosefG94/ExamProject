@@ -58,7 +58,7 @@ namespace MovieJournal.Controllers
 
             if (!movieExists)
             {
-                var addmovie = new MovieOnList() { MovieId = movieid, Rating = 0,Review="", Profile=profile, ProfileId=profile.Id, Watched=false};
+                var addmovie = new MovieOnList() { MovieId = movieid, Rating = 0,Review="", ProfileId=profile.Id, Watched=false};
                 facade.GetMovieOnListRepository().Add(addmovie);
                 
             }
