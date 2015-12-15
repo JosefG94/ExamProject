@@ -18,7 +18,7 @@ namespace MovieJournalDAL.Model
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public virtual ICollection<MovieOnList> MovieOnList { get; set; }
+        public virtual ICollection<movieOnList> MovieOnList { get; set; }
         [DataMember]
         public virtual ICollection<Profile> Profiles { get; set; }
     }

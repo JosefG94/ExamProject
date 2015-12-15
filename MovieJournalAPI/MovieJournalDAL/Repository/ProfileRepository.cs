@@ -44,6 +44,8 @@ namespace MovieJournalDAL.Repository
                 ctx.SaveChanges();
             }
         }
+
+
         public void Delete(int id)
         {
             using (var ctx = new MovieContext())

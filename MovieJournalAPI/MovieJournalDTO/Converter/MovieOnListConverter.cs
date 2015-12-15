@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDTO.Converter
 {
-    public class MovieOnListDTOConverter : AbstractDTOConverter<MovieOnList, MovieOnListDTO>
+    public class MovieOnListDTOConverter : AbstractDTOConverter<movieOnList, MovieOnListDTO>
     {
-        public override MovieOnListDTO Convert(MovieOnList item)
+        public override MovieOnListDTO Convert(movieOnList item)
         {
             var dto = new MovieOnListDTO()
             {

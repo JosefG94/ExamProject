@@ -55,7 +55,7 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="movieOnList"></param>
         /// <returns></returns>
-        public HttpResponseMessage Post(MovieOnList movieOnList)
+        public HttpResponseMessage Post(movieOnList movieOnList)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         /// <param name="movieOnList"></param>
         /// <returns></returns>
-        public HttpResponseMessage Put(MovieOnList movieOnList)
+        public HttpResponseMessage Put(movieOnList movieOnList)
         {
             try
             {

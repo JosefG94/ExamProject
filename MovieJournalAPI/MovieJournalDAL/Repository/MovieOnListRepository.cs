@@ -10,21 +10,21 @@ namespace MovieJournalDAL.Repository
 {
    public class MovieOnListRepository
     {
-        public IEnumerable<MovieOnList> ReadAll()
+        public IEnumerable<movieOnList> ReadAll()
         {
             using (var ctx = new MovieContext())
             {
                 return ctx.MoviesOnList.Include(x => x.Profile).ToList();
             }
         }
-        public MovieOnList Get(int id)
+        public movieOnList Get(int id)
         {
             using (var ctx = new MovieContext())
             {
                 return ctx.MoviesOnList.Include(x => x.Profile).Where(x => x.Id == id).FirstOrDefault();
             }
         }
-        public void Add(MovieOnList movieOnList)
+        public void Add(movieOnList movieOnList)
         {
             using (var ctx = new MovieContext())
             {
@@ -32,11 +32,11 @@ namespace MovieJournalDAL.Repository
                 ctx.SaveChanges();
             }
         }
-        public void Edit(MovieOnList movieOnList)
+        public void Edit(movieOnList movieOnList)
         {
             using (var ctx = new MovieContext())
             {
-                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).First();
+                movieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).First();
                 m.Id = movieOnList.Id;
                 m.Rating = movieOnList.Rating;
                 m.Review = movieOnList.Review;
@@ -49,7 +49,7 @@ namespace MovieJournalDAL.Repository
         {
             using (var ctx = new MovieContext())
             {
-                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == id).First();
+                movieOnList m = ctx.MoviesOnList.Where(x => x.Id == id).First();
                 if (m != null)
                     ctx.MoviesOnList.Remove(m);
                 ctx.SaveChanges();
