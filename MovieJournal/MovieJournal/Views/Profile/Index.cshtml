@@ -2,7 +2,7 @@
 
 @foreach (var item in Model)
 {
-    <h2>@Html.DisplayFor(modelItem => item.MovieId)</h2>
+    @TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title
     <h2>@Html.DisplayFor(modelItem => item.Profile)</h2>
     <h2>@Html.DisplayFor(modelItem => item.Rating)</h2>
     <h2>@Html.DisplayFor(modelItem => item.Review)</h2>

@@ -17,8 +17,11 @@ namespace MovieJournal.Controllers
             // Gets username
             var user = System.Threading.Thread.CurrentPrincipal;
             var userName = user.Identity.Name;
-            // Returns view with the list of movies for the specific user with 'userName'
-            return View(facade.GetMovieOnListRepository().GetByProfileId(userName));
+
+            var profileid = facade.GetProfileGateWayService().GetByUserName(userName).Id;
+
+            // Returns view with the list of movies for the specific user with the profileid
+            return View(facade.GetMovieOnListRepository().GetByProfileId(profileid));
         }
     }
 }

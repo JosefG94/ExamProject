@@ -29,21 +29,12 @@ namespace MovieJournalGateway.Services
             }
         }
 
-        public Profile GetTEST()
-        {
-            using (var client = new HttpClient())
-            {
-                HttpResponseMessage response =
-                    client.GetAsync("http://localhost:30332/api/Account/UserInfo").Result;
-                return response.Content.ReadAsAsync<Profile>().Result;
-            }
-        }
         public Profile GetByUserName(string userName)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.GetAsync("http://localhost:30332/api/UserName?userName=" + userName).Result;
+                    client.GetAsync("http://localhost:30332/api/Profile/UserName?userName=" + userName).Result;
                 return response.Content.ReadAsAsync<Profile>().Result;
             }
         }
