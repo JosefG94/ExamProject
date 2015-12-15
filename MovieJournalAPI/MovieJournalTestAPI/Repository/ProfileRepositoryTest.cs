@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MovieJournalDAL;
-using MovieJournalDAL.Context;
 using MovieJournalDAL.Model;
-using MovieJournalDAL.Repository;
 using NUnit.Framework;
 
 namespace MovieJournalTestAPI.Repository

@@ -492,14 +492,14 @@
             Will get MovieOnLists for one profile from database.
             </summary>
         </member>
-        <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Post(MovieJournalDAL.Model.movieOnList)">
+        <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Post(MovieJournalDAL.Model.MovieOnList)">
             <summary>
             Creates a MovieOnList in the Database
             </summary>
             <param name="movieOnList"></param>
             <returns></returns>
         </member>
-        <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Put(MovieJournalDAL.Model.movieOnList)">
+        <member name="M:MovieJournalAPI.Controllers.MovieOnListController.Put(MovieJournalDAL.Model.MovieOnList)">
             <summary>
             Updates a MovieOnList in Database
             </summary>

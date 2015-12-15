@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MovieJournalDAL.Model
 {
     [DataContract(IsReference = true)]
-    public class movieOnList
+    public class MovieOnList
     {
         [Key]
         [DataMember]

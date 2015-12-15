@@ -10,14 +10,13 @@ namespace MovieJournalDAL.Repository
 {
    public class MovieOnListRepository
     {
-        public IEnumerable<movieOnList> ReadAll()
+        public IEnumerable<MovieOnList> ReadAll()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx.MoviesOnList.Include(x => x.Profile).ToList();
             }
         }
-<<<<<<< HEAD
 
         public IEnumerable<MovieOnList> ReadByProfileId(int id)
         {
@@ -27,16 +26,13 @@ namespace MovieJournalDAL.Repository
             }
         }
         public MovieOnList Get(int id)
-=======
-        public movieOnList Get(int id)
->>>>>>> 7d8eceaeb0f276cba64dbabd1e3d02f9ae2419bf
         {
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx.MoviesOnList.Include(x => x.Profile).Where(x => x.Id == id).FirstOrDefault();
             }
         }
-        public void Add(movieOnList movieOnList)
+        public void Add(MovieOnList movieOnList)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -44,11 +40,11 @@ namespace MovieJournalDAL.Repository
                 ctx.SaveChanges();
             }
         }
-        public void Edit(movieOnList movieOnList)
+        public void Edit(MovieOnList movieOnList)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                movieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).First();
+                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).First();
                 m.Id = movieOnList.Id;
                 m.Rating = movieOnList.Rating;
                 m.Review = movieOnList.Review;
@@ -61,7 +57,7 @@ namespace MovieJournalDAL.Repository
         {
             using (var ctx = new ApplicationDbContext())
             {
-                movieOnList m = ctx.MoviesOnList.Where(x => x.Id == id).First();
+                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == id).First();
                 if (m != null)
                     ctx.MoviesOnList.Remove(m);
                 ctx.SaveChanges();
