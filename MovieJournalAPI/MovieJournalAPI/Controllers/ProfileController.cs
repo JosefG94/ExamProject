@@ -10,6 +10,7 @@ using MovieJournalAPI.Repository;
 
 namespace MovieJournalAPI.Controllers
 {
+    [RoutePrefix("api/Profile")]
     public class ProfileController : ApiController
     {
         Facade facade = new Facade();
@@ -31,6 +32,22 @@ namespace MovieJournalAPI.Controllers
         public HttpResponseMessage Get(int id)
         {
             var profile = new Facade().GetProfileRepository().Get(id);
+            ProfileDTO profileDTO = null;
+            if (profile != null)
+            {
+                profileDTO = new ProfileDTOConverter().Convert(profile);
+                return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
+            }
+            var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+            {
+                Content = new StringContent("Profile not found.")
+            };
+            throw new HttpResponseException(response);
+        }
+        [Route("UserName")]
+        public HttpResponseMessage Get(string userName)
+        {
+            var profile = new Facade().GetProfileRepository().Get(userName);
             ProfileDTO profileDTO = null;
             if (profile != null)
             {

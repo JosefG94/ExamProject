@@ -36,14 +36,15 @@ namespace MovieJournalAPI.Controllers
         /// </summary>
         public IEnumerable<MovieOnListDTO> Get(int id)
         {
-            var movieOnList = facade.GetMovieOnListRepository().ReadByProfileId(id);
+            var movieOnList = facade.GetMovieOnListRepository().GetByProfileId(id);
             return new MovieOnListDTOConverter().Convert(movieOnList);
         }
 
-        /// <summary>
-        /// Will get a specific MovieOnList found by the Id
-        /// </summary>
-        /// <param name="id"></param>
+
+        ///// <summary>
+        ///// Will get a specific MovieOnList found by the Id
+        ///// </summary>
+        ///// <param name = "id" ></ param >
         //public HttpResponseMessage Get(int Id)
         //{
         //    var movieOnList = facade.GetMovieOnListRepository().Get(Id);

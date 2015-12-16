@@ -22,6 +22,16 @@ namespace MovieJournalDTO.Converter
                 Watched = item.Watched
                 
             };
+
+            if (item.Profile != null)
+            {
+                dto.Profile = new Profile()
+                {
+                    Id = item.Profile.Id,
+                    Name = item.Profile.Name,
+                    UserName = item.Profile.UserName
+                };
+            }
             return dto;
         }
 

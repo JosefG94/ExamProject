@@ -18,7 +18,7 @@ namespace MovieJournalDAL.Repository
             }
         }
 
-        public IEnumerable<MovieOnList> ReadByProfileId(int id)
+        public IEnumerable<MovieOnList> GetByProfileId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

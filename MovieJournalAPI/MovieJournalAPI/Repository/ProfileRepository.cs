@@ -2,6 +2,7 @@
 using System.Linq;
 using MovieJournalDAL.Model;
 using MovieJournalAPI.Models;
+using System.Web.Http;
 
 namespace MovieJournalAPI.Repository
 {
@@ -14,6 +15,15 @@ namespace MovieJournalAPI.Repository
                 return ctx.Profiles.ToList();
             }
         }
+        
+        public Profile Get(string userName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Profiles.Where(x => x.UserName == userName).FirstOrDefault();
+            }
+        }
+
         public Profile Get(int id)
         {
             using (var ctx = new ApplicationDbContext())

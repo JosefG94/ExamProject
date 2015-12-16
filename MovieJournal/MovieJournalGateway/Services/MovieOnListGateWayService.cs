@@ -30,6 +30,16 @@ namespace MovieJournalGateway.Services
             }
         }
 
+        public IEnumerable<MovieOnList> GetByProfileId(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    client.GetAsync("http://localhost:30332/api/movieOnList/" + id).Result;
+                return response.Content.ReadAsAsync<IEnumerable<MovieOnList>>().Result;
+            }
+        }
+
         public MovieOnList Add(MovieOnList movieOnList)
         {
             using (var client = new HttpClient())

@@ -29,6 +29,16 @@ namespace MovieJournalGateway.Services
             }
         }
 
+        public Profile GetByUserName(string userName)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    client.GetAsync("http://localhost:30332/api/UserName?userName=" + userName).Result;
+                return response.Content.ReadAsAsync<Profile>().Result;
+            }
+        }
+
         public Profile Add(Profile profile)
         {
             using (var client = new HttpClient())
