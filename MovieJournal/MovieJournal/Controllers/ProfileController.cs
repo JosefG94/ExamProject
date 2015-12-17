@@ -11,10 +11,11 @@ namespace MovieJournal.Controllers
     {
         // GET: Profile
         Facade facade = new Facade();
+        
         public ActionResult Index()
         {
-            var user = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            var profile = facade.GetProfileGateWayService().GetByUserName(userName);
+            var userName = facade.GetProfileGateWayService().GetTEST();
+            var profile = facade.GetProfileGateWayService().GetByUserName(userName.UserName);
             return View(facade.GetMovieOnListRepository().GetByProfileId(profile.Id));
         }
     }
