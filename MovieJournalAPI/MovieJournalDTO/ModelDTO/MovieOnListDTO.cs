@@ -19,7 +19,7 @@ namespace MovieJournalDTO.ModelDTO
         [DataMember]
         public bool Watched { get; set; }
         [DataMember]
-        public virtual Profile Profile { get; set; }
+        public virtual ProfileDTO Profile { get; set; }
         [DataMember]
         public int ProfileId { get; set; }
     }

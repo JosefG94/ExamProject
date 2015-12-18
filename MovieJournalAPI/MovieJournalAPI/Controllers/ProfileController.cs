@@ -22,7 +22,7 @@ namespace MovieJournalAPI.Controllers
         public IEnumerable<ProfileDTO> GetAll()
         {
             var profile =  facade.GetProfileRepository().ReadAll();
-            return new ProfileDTOConverter().Convert(profile);
+            return new ProfileConverter().Convert(profile);
         }
         /// <summary>
         /// Will get a specific Profile found by the Id
@@ -35,7 +35,7 @@ namespace MovieJournalAPI.Controllers
             ProfileDTO profileDTO = null;
             if (profile != null)
             {
-                profileDTO = new ProfileDTOConverter().Convert(profile);
+                profileDTO = new ProfileConverter().Convert(profile);
                 return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
@@ -51,7 +51,7 @@ namespace MovieJournalAPI.Controllers
             ProfileDTO profileDTO = null;
             if (profile != null)
             {
-                profileDTO = new ProfileDTOConverter().Convert(profile);
+                profileDTO = new ProfileConverter().Convert(profile);
                 return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
@@ -71,7 +71,7 @@ namespace MovieJournalAPI.Controllers
         {
             try
             {
-                var profileDTO = new ProfileDTOConverter().Convert(profile);
+                var profileDTO = new ProfileConverter().Convert(profile);
                 facade.GetProfileRepository().Add(profile);
 
                 var response = Request.CreateResponse<ProfileDTO>(HttpStatusCode.Created, profileDTO);
@@ -97,7 +97,7 @@ namespace MovieJournalAPI.Controllers
         {
             try
             {
-                var profileDTO = new ProfileDTOConverter().Convert(profile);
+                var profileDTO = new ProfileConverter().Convert(profile);
                 facade.GetProfileRepository().Edit(profile);
                 var response = Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
                 var uri = Url.Link("GetProfileById", new { profile.Id });

@@ -44,12 +44,11 @@ namespace MovieJournalDAL.Repository
         {
             using (var ctx = new ApplicationDbContext())
             {
-                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).First();
+                MovieOnList m = ctx.MoviesOnList.Where(x => x.Id == movieOnList.Id).FirstOrDefault();
                 m.Id = movieOnList.Id;
                 m.Rating = movieOnList.Rating;
                 m.Review = movieOnList.Review;
                 m.Watched = movieOnList.Watched;
-                m.Profile = movieOnList.Profile;
                 ctx.SaveChanges();
             }
         }

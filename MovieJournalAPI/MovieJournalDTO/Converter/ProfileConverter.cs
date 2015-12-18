@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDTO.Converter
 {
-    public class ProfileDTOConverter : AbstractDTOConverter<Profile, ProfileDTO>
+    public class ProfileConverter : AbstractDTOConverter<Profile, ProfileDTO>
     {
         public override ProfileDTO Convert(Profile item)
         {
@@ -30,7 +30,6 @@ namespace MovieJournalDTO.Converter
                         Review = mol.Review,
                         Watched = mol.Watched,
                         ProfileId = mol.ProfileId
-
                     });
                 }
             }

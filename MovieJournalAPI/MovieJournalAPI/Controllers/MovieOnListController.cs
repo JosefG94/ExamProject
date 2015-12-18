@@ -14,9 +14,9 @@ using System.Net.Http;
 using System.Net;
 using MovieJournalDAL.Model;
 using MovieJournalAPI.Repository;
-
 namespace MovieJournalAPI.Controllers
 {
+    [System.Web.Http.RoutePrefix("api/MovieOnList")]
     public class MovieOnListController : ApiController
     {
         Facade facade = new Facade();
@@ -28,38 +28,39 @@ namespace MovieJournalAPI.Controllers
         public IEnumerable<MovieOnListDTO> GetAll()
         {
             var movieOnList = facade.GetMovieOnListRepository().ReadAll();
-            return new MovieOnListDTOConverter().Convert(movieOnList);
+            return new MovieOnListConverter().Convert(movieOnList);
         }
 
         /// <summary>
         /// Will get MovieOnLists for one profile from database.
         /// </summary>
-        public IEnumerable<MovieOnListDTO> Get(int id)
+        [System.Web.Http.Route("ProfileId")]
+        public IEnumerable<MovieOnListDTO> GetByProfileId(int id)
         {
             var movieOnList = facade.GetMovieOnListRepository().GetByProfileId(id);
-            return new MovieOnListDTOConverter().Convert(movieOnList);
+            return new MovieOnListConverter().Convert(movieOnList);
         }
 
 
-        ///// <summary>
-        ///// Will get a specific MovieOnList found by the Id
-        ///// </summary>
-        ///// <param name = "id" ></ param >
-        //public HttpResponseMessage Get(int Id)
-        //{
-        //    var movieOnList = facade.GetMovieOnListRepository().Get(Id);
-        //    MovieOnListDTO movieOnListDTO = null;
-        //    if (movieOnList != null)
-        //    {
-        //        movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
-        //        return Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
-        //    }
-        //    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-        //    {
-        //        Content = new StringContent(" MovieOnList not found.")
-        //    };
-        //    throw new HttpResponseException(response);
-        //}
+        /// <summary>
+        /// Will get a specific MovieOnList found by the Id
+        /// </summary>
+        /// <param name ="Id"></param>
+        public HttpResponseMessage Get(int Id)
+        {
+            var movieOnList = facade.GetMovieOnListRepository().Get(Id);
+            MovieOnListDTO movieOnListDTO = null;
+            if (movieOnList != null)
+            {
+                movieOnListDTO = new MovieOnListConverter().Convert(movieOnList);
+                return Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
+            }
+            var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+            {
+                Content = new StringContent(" MovieOnList not found.")
+            };
+            throw new HttpResponseException(response);
+        }
 
         /// <summary>
         /// Creates a MovieOnList in the Database
@@ -70,7 +71,7 @@ namespace MovieJournalAPI.Controllers
         {
             try
             {
-                var movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
+                var movieOnListDTO = new MovieOnListConverter().Convert(movieOnList);
                 facade.GetMovieOnListRepository().Add(movieOnList);
 
                 var response = Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.Created, movieOnListDTO);
@@ -96,11 +97,9 @@ namespace MovieJournalAPI.Controllers
         {
             try
             {
-                var movieOnListDTO = new MovieOnListDTOConverter().Convert(movieOnList);
+                var movieOnListDTO = new MovieOnListConverter().Convert(movieOnList);
                 facade.GetMovieOnListRepository().Edit(movieOnList);
                 var response = Request.CreateResponse<MovieOnListDTO>(HttpStatusCode.OK, movieOnListDTO);
-                var uri = Url.Link("GetMovieOnListById", new { movieOnList.Id });
-                response.Headers.Location = new Uri(uri);
                 return response;
             }
             catch (Exception)

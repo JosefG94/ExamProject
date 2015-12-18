@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieJournalDTO.Converter
 {
-    public class MovieOnListDTOConverter : AbstractDTOConverter<MovieOnList, MovieOnListDTO>
+    public class MovieOnListConverter : AbstractDTOConverter<MovieOnList, MovieOnListDTO>
     {
         public override MovieOnListDTO Convert(MovieOnList item)
         {
@@ -18,19 +18,14 @@ namespace MovieJournalDTO.Converter
                 Rating = item.Rating,
                 Review = item.Review,
                 MovieId = item.MovieId,
-                Profile = item.Profile,
-                Watched = item.Watched
+                Watched = item.Watched,
+                ProfileId = item.ProfileId
                 
             };
 
             if (item.Profile != null)
             {
-                dto.Profile = new Profile()
-                {
-                    Id = item.Profile.Id,
-                    Name = item.Profile.Name,
-                    UserName = item.Profile.UserName
-                };
+                dto.Profile = new ProfileConverter().Convert(item.Profile);
             }
             return dto;
         }

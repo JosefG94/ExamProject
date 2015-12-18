@@ -35,7 +35,7 @@ namespace MovieJournalGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.GetAsync("http://localhost:30332/api/movieOnList/" + id).Result;
+                    client.GetAsync("http://localhost:30332/api/MovieOnList/ProfileId?id=" + id).Result;
                 return response.Content.ReadAsAsync<IEnumerable<MovieOnList>>().Result;
             }
         }
