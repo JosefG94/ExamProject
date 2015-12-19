@@ -53,11 +53,11 @@
     <a href="javascript:history.go(-1)" class="btn btn-warning" role="button">Back</a> |
     @if (User.Identity.IsAuthenticated)
     {
-        <a href="#" class="btn btn-success" role="button">Add to list</a>
+    @Html.ActionLink("Add", "AddMovieOnList", new { movieid = Model.Id }, new { @class = "btn btn-success" })
     }
     else
     {
-        <a href="#" class="btn btn-success disabled" role="button">Add to list</a>
+    <a href="#" class="btn btn-success disabled" role="button">Add</a>
     }
     <br />
 </div>

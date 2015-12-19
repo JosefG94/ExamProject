@@ -13,11 +13,20 @@ namespace MovieJournal.Controllers
         // GET: Profile
         Facade facade = new Facade();
         
-        public ActionResult Index()
+        public ActionResult MyJournal()
         {
             // Gets username
             var user = System.Threading.Thread.CurrentPrincipal;
             var userName = user.Identity.Name;
+
+            var profileid = facade.GetProfileGateWayService().GetByUserName(userName).Id;
+
+            // Returns view with the list of movies for the specific user with the profileid
+            return View(facade.GetMovieOnListRepository().GetByProfileId(profileid));
+        }
+
+        public ActionResult Index(string userName)
+        {
 
             var profileid = facade.GetProfileGateWayService().GetByUserName(userName).Id;
 
@@ -31,7 +40,7 @@ namespace MovieJournal.Controllers
             var before = facade.GetMovieOnListRepository().Get(id);
             before.Watched = watched;
             var after = facade.GetMovieOnListRepository().Edit(before);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyJournal");
         }
 
         // Changes rating of a MovieOnList
@@ -40,7 +49,7 @@ namespace MovieJournal.Controllers
             var before = facade.GetMovieOnListRepository().Get(id);
             before.Rating = rating;
             var after = facade.GetMovieOnListRepository().Edit(before);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyJournal");
         }
         //  Changes the review of a MovieOnList
         public ActionResult EditReview(int id, string review)
@@ -48,13 +57,13 @@ namespace MovieJournal.Controllers
             var before = facade.GetMovieOnListRepository().Get(id);
             before.Review = review;
             var after = facade.GetMovieOnListRepository().Edit(before);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyJournal");
         }
 
         public ActionResult Delete(int id)
         {
             var delete = facade.GetMovieOnListRepository().Delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyJournal");
         }
     }
 }

@@ -1,0 +1,201 @@
+﻿@model IEnumerable<MovieJournalDTO.MovieOnList>
+
+<h1 class="text-info">Your movie journal</h1>
+<br />
+<!--------List of unwatched movies-------->
+<h2 class="text-danger">Not watched yet</h2>
+<table class="table">
+    <tr>
+        <th class="col-md-7">Title</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Rating)</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Review)</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Watched)</th>
+        <th class="col-md-1">Delete</th>
+    </tr>
+
+
+    
+    @foreach (var item in Model)
+    {
+        if (!item.Watched)
+        {
+    <tr>
+        <td><b>@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</b> (@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Release)</td>
+        <td></td>
+        <td></td>
+        <td>
+            <button title="Set as 'watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new {id = item.Id, watched = true})'">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </td>
+        <td>
+            <!-- Trigger the confirm modal with a button -->
+            <button title="Delete from list" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#@item.Id@Html.DisplayNameFor(model => model.MovieId)">
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+            </button>
+
+            <!-- Modal -->
+            <div id="@item.Id@Html.DisplayNameFor(model => model.MovieId)" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-sm">
+
+                    <!-- Confirm modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/Profile/Delete/">
+                                <h4 class="text-danger">Delete movie from your journal?</h4>
+                                <br />
+                                <input type="hidden" value="@item.Id" name="id" />
+                                <p>
+                                    <input type="submit" class="btn btn-danger" value="Yes" />
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+        }
+    }
+</table>
+
+<br />
+
+<!--------List of unwatched movies-------->
+<h2 class="text-success">Watched movies</h2>
+<table class="table">
+    <tr>
+        <th class="col-md-7">Title</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Rating)</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Review)</th>
+        <th class="col-md-2">@Html.DisplayNameFor(model => model.Watched)</th>
+        <th class="col-md-1">Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.Watched)
+        {
+            <tr>
+                <td><b>@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</b> (@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Release)</td>
+                <td>                    <!-- Trigger the rating modal with a button -->
+                    <a data-toggle="modal" data-target="#@item.Id@Html.DisplayNameFor(model => model.Rating)">
+                        @if (@item.Rating == 0)
+                    {<text>No rating yet</text>}
+                    else
+                    {@Html.DisplayFor(modelItem => item.Rating)<text>/10</text>}
+                    </a>
+
+                    <!-- Modal -->
+                    <div id="@item.Id@Html.DisplayNameFor(model => model.Rating)" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-sm">
+
+                            <!-- Rating modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/Profile/EditRating/">
+                                        <p>Rating:</p>
+                                        <fieldset>
+                                            <select id="RatingSelection" name="Rating">
+                                                <option selected="selected" value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </fieldset>
+                                        <br />
+                                        <input type="hidden" value="@item.Id" name="id" />
+                                        <p><input type="submit" class="btn btn-default" value="Submit" /> </p>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+                <td> 
+                    <!-- Trigger the review modal with a button -->
+                    <a data-toggle="modal" data-target="#@item.Id@Html.DisplayNameFor(model => model.Review)">
+                        @Html.DisplayNameFor(model => model.Review)
+                    </a>
+
+                    <!-- Modal -->
+                    <div id="@item.Id@Html.DisplayNameFor(model => model.Review)" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+
+                            <!-- Review modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/Profile/EditReview/">
+                                        <h3>Review</h3>
+                                        <textarea name="review" rows="20" cols="50" maxlength="500">@Html.DisplayFor(modelItem => item.Review)</textarea>
+                                        <br />
+                                        <input type="hidden" value="@item.Id" name="id" />
+                                        <p><input type="submit" class="btn btn-default" value="Submit" /> </p>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button title="Set as 'not watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new {id = item.Id, watched = false})'">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </button>
+                </td>
+                <td>
+                    <!-- Trigger the confirm modal with a button -->
+                    <button title="Delete from list" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#@item.Id@Html.DisplayNameFor(model => model.MovieId)">
+                        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                    </button>
+
+                    <!-- Modal -->
+                    <div id="@item.Id@Html.DisplayNameFor(model => model.MovieId)" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-sm">
+
+                            <!-- Confirm modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/Profile/Delete/">
+                                        <h4 class="text-danger">Delete movie from your journal?</h4>
+                                        <br />
+                                        <input type="hidden" value="@item.Id" name="id" />
+                                        <p>
+                                            <input type="submit" class="btn btn-danger" value="Yes" />
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+</table>

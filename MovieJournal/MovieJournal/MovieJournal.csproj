@@ -217,6 +217,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Account\RegisterSuccessful.cshtml" />
+    <Content Include="Views\Profile\MyJournal.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

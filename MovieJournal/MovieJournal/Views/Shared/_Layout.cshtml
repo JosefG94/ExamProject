@@ -20,9 +20,12 @@
                 @Html.ActionLink("MovieJournal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @if(User.Identity.IsAuthenticated)
+                {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("My movies", "Index", "Profile")</li>
+                    <li>@Html.ActionLink("My journal", "MyJournal", "Profile")</li>
                 </ul>
+                }
                 @RenderPage("~/Views/Shared/_LoginLayout.cshtml")
             </div>
         </div>
