@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MovieJournalDTO.MovieOnList>
 
-<h1 class="text-info">@(ViewContext.RouteData.Values["userName"])'s movie journal</h1>
+<h1 class="text-info">Movie journal</h1>
 <br />
 <!--------List of unwatched movies-------->
 <h2 class="text-danger">Not watched yet</h2>
@@ -19,7 +19,7 @@
         if (!item.Watched)
         {
             <tr>
-                <td><b>@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</b> (@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Release)</td>
+                <td><b>@Html.Encode(TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title)</b> (@Html.Encode(TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Release))</td>
                 <td></td>
                 <td></td>
                 <td>
