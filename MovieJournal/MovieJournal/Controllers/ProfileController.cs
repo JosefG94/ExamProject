@@ -1,4 +1,5 @@
-﻿using MovieJournalDTO;
+﻿using MovieJournalBLL;
+using MovieJournalDTO;
 using MovieJournalGateway;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,9 @@ namespace MovieJournal.Controllers
     {
         // GET: Profile
         Facade facade = new Facade();
-        
+        MovieOnListBLL movbll = MovieOnListBLL.Instance;
+
+        [HttpGet]
         public ActionResult MyJournal()
         {
             // Gets username
@@ -35,35 +38,35 @@ namespace MovieJournal.Controllers
         }
 
         // Changes "Watched" to the opposite value of a MovieOnList
-        public ActionResult EditWatched(int id, Boolean watched)
+        public ActionResult EditWatched(int id)
         {
-            var before = facade.GetMovieOnListRepository().Get(id);
-            before.Watched = watched;
-            var after = facade.GetMovieOnListRepository().Edit(before);
+            var changedmov = movbll.ChangeWatched(facade.GetMovieOnListRepository().Get(id));
+            facade.GetMovieOnListRepository().Edit(changedmov);
             return RedirectToAction("MyJournal");
         }
 
         // Changes rating of a MovieOnList
         public ActionResult EditRating(int id, int rating)
         {
-            var before = facade.GetMovieOnListRepository().Get(id);
-            before.Rating = rating;
-            var after = facade.GetMovieOnListRepository().Edit(before);
+            var changedmov = movbll.ChangeRating(facade.GetMovieOnListRepository().Get(id),rating);
+            facade.GetMovieOnListRepository().Edit(changedmov);
+
             return RedirectToAction("MyJournal");
         }
         //  Changes the review of a MovieOnList
         public ActionResult EditReview(int id, string review)
         {
-            var before = facade.GetMovieOnListRepository().Get(id);
-            before.Review = review;
-            var after = facade.GetMovieOnListRepository().Edit(before);
+            var changedmov = movbll.ChangeReview(facade.GetMovieOnListRepository().Get(id), review);
+            facade.GetMovieOnListRepository().Edit(changedmov);
             return RedirectToAction("MyJournal");
         }
-
+        
         public ActionResult Delete(int id)
         {
             var delete = facade.GetMovieOnListRepository().Delete(id);
             return RedirectToAction("MyJournal");
         }
+
+        
     }
 }

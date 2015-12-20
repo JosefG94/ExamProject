@@ -24,7 +24,7 @@
         <td></td>
         <td></td>
         <td>
-            <button title="Set as 'watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new {id = item.Id, watched = true})'">
+            <button title="Set as 'watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new { id = item.Id})'">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
         </td>
@@ -99,7 +99,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                    <h4 class="modal-title">@Html.Encode(TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title)</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form action="/Profile/EditRating/">
@@ -142,7 +142,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                    <h4 class="modal-title">@Html.Encode(TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title)</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form action="/Profile/EditReview/">
@@ -159,7 +159,7 @@
                     </div>
                 </td>
                 <td>
-                    <button title="Set as 'not watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new {id = item.Id, watched = false})'">
+                    <button title="Set as 'not watched'" type="button" class="btn btn-default btn-sm" onclick="location.href='@Url.Action("EditWatched", "Profile", new {id = item.Id})'">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </button>
                 </td>
@@ -177,7 +177,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">@TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title</h4>
+                                    <h4 class="modal-title">@Html.Encode(TMDBGateway.TMDBServices.TMDBGateWayService.Instance.GetMovie(item.MovieId).Title)</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form action="/Profile/Delete/">
