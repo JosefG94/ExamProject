@@ -9,7 +9,7 @@ namespace MovieJournalDTO.AuthModels
 {
     public class SignInModel
     {
-        [Required, Display(Name = "User name")]
+        [Required, MaxLength(16, ErrorMessage = "User name must be 3-16 characters"), MinLength(3, ErrorMessage = "User name must be minimum 3-16 characters"), Display(Name = "User name")]
         public string UserName{ get; set; }
 
         [Required]
@@ -17,5 +17,6 @@ namespace MovieJournalDTO.AuthModels
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+        public string NoMatch { get; set; }
     }
 }

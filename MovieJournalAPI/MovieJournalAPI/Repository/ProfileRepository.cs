@@ -20,7 +20,10 @@ namespace MovieJournalAPI.Repository
         {
             using (var ctx = new ApplicationDbContext())
             {
-                return ctx.Profiles.Where(x => x.UserName == userName).FirstOrDefault();
+                var profile = ctx.Profiles.Where(x => x.UserName == userName).FirstOrDefault();
+                if (profile == null)
+                    return null;
+                return profile;
             }
         }
 

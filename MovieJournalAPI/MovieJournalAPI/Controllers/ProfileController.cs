@@ -49,16 +49,8 @@ namespace MovieJournalAPI.Controllers
         {
             var profile = new Facade().GetProfileRepository().Get(userName);
             ProfileDTO profileDTO = null;
-            if (profile != null)
-            {
                 profileDTO = new ProfileConverter().Convert(profile);
                 return Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
-            }
-            var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-            {
-                Content = new StringContent("Profile not found.")
-            };
-            throw new HttpResponseException(response);
         }
 
 

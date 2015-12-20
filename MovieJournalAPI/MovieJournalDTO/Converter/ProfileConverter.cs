@@ -12,6 +12,8 @@ namespace MovieJournalDTO.Converter
     {
         public override ProfileDTO Convert(Profile item)
         {
+            if (item == null)
+                return null;
             var dto = new ProfileDTO()
             {
                 Id = item.Id,

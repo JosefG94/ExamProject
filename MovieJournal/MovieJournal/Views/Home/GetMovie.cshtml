@@ -7,13 +7,14 @@
 <div class="container table-bordered">
     <div class="row">
         <div class="col-md-2">
-                <img src="@Model.Image">
+                <img src="@Html.Encode(Model.Image)">
         </div>
         <div class="col-md-6">
-                <h1>@Model.Title</h1>
+                <h1>@Html.Encode(Model.Title)</h1>
                 <h3 style="color:gray;display: block;"> 
+            <!--If valid release date, show first 4 characters of release, which is the release year, else output "No release date"-->
             (@if (@Model.Release.Length >= 4)
-            {@Model.Release.Substring(0, 4)}
+            {@Html.Encode(Model.Release.Substring(0, 4))}
             else
             {
             <text>No release date</text>
@@ -21,12 +22,13 @@
                 </h3>
                 <h4> 
                 <span class="glyphicon glyphicon-star"></span>
+                    <!--If valid rating (rating higher than 0), show-rating/10, else output "No rating available" -->
                     @if (@Model.Rating == 0)
                     {<text>No rating available</text>}
                     else
-                    {@Model.Rating<text>/10</text>}
+                    {@Html.Encode(Model.Rating)<text>/10</text>}
                 </h4>
-                <p>@Model.Overview</p>
+                <p>@Html.Encode(Model.Overview)</p>
         </div>
         <div class="col-md-4"  style="border:inset #333333;border-width: 1px; border-right:none">
             <h4>@Html.LabelFor(Model => Model.Genres):</h4>
@@ -40,12 +42,12 @@
             <h4>@Html.LabelFor(Model => Model.Status):</h4>
             @if (@Model.Status.Equals("Released"))
             {
-                <h5>@Model.Status</h5>
+                <h5>@Html.Encode(Model.Status)</h5>
             }
             else
             {
-                <h5>@Model.Status</h5>
-                <h5>Expected release: @Model.Release</h5>
+                <h5>@Html.Encode(Model.Status)</h5>
+                <h5>Expected release: @Html.Encode(Model.Release)</h5>
             }
         </div>
     </div>

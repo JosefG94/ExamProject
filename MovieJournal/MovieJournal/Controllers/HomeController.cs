@@ -16,11 +16,14 @@ namespace MovieJournal.Controllers
     {
         TMDBGateWayService tmdbGW = TMDBGateWayService.Instance;
         Facade facade = new Facade();
+
+        // Outputs most 20 most popular movies from the TMDB API
         public ActionResult Index()
         {
             return View(tmdbGW.GetPopular());
         }
 
+        // Outputs detailed movie information
         [HttpGet]
         public ActionResult GetMovie(int id)
         {
@@ -28,6 +31,7 @@ namespace MovieJournal.Controllers
             return View(movie);
         }
         
+        // Outputs search results
         [HttpGet]
         public ActionResult Search(string query)
         {

@@ -38,13 +38,8 @@ namespace MovieJournal.Controllers
             {
                 //No 200 OK result, what went wrong?
                 //HandleBadRequest(ex);
-
-                if (!ModelState.IsValid)
-                {
+                    model.Taken = "User name already taken";
                     return View(model);
-                }
-
-                throw;
             }
         }
 
@@ -66,7 +61,6 @@ namespace MovieJournal.Controllers
 
             try
             {
-                //Find if there is a redirect Url. Then remove it for next time!
                 var redirectUrl = Session["RedirectUrl"] as string;
                 Session["RedirectUrl"] = null;
                 var result = await aservice.AuthenticateAsync<SignInResult>(model.UserName, model.Password);
@@ -89,8 +83,8 @@ namespace MovieJournal.Controllers
                 {
                     return View(model);
                 }
-
-                throw;
+                model.NoMatch ="Incorrect user name or password";
+                return View(model);
             }
         }
 

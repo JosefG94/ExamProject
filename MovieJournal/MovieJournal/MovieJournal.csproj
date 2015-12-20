@@ -217,6 +217,8 @@
     <Content Include="Views\Account\RegisterSuccessful.cshtml" />
     <Content Include="Views\Profile\MyJournal.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\NoProfileFound.cshtml" />
+    <Content Include="Views\Profile\NoAuthorization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
