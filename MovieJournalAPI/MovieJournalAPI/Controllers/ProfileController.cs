@@ -36,7 +36,7 @@ namespace MovieJournalAPI.Controllers
             if (profile != null)
             {
                 profileDTO = new ProfileConverter().Convert(profile);
-                return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
+                return Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
             {
@@ -44,6 +44,11 @@ namespace MovieJournalAPI.Controllers
             };
             throw new HttpResponseException(response);
         }
+        /// <summary>
+        /// Will get a specific Profile found by the UserName
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         [Route("UserName")]
         public HttpResponseMessage Get(string userName)
         {
@@ -52,7 +57,7 @@ namespace MovieJournalAPI.Controllers
             if (profile != null)
             {
                 profileDTO = new ProfileConverter().Convert(profile);
-                return Request.CreateResponse<Profile>(HttpStatusCode.OK, profile);
+                return Request.CreateResponse<ProfileDTO>(HttpStatusCode.OK, profileDTO);
             }
             var response = new HttpResponseMessage(HttpStatusCode.NotFound)
             {
