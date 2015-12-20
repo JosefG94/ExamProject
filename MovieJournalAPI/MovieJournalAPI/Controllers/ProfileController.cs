@@ -44,6 +44,11 @@ namespace MovieJournalAPI.Controllers
             };
             throw new HttpResponseException(response);
         }
+        /// <summary>
+        /// Will get a specific Profile found by the UserName
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         [Route("UserName")]
         public HttpResponseMessage Get(string userName)
         {

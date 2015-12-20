@@ -531,6 +531,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MovieJournalAPI.Controllers.ProfileController.Get(System.String)">
+            <summary>
+            Will get a specific Profile found by the UserName
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
         <member name="M:MovieJournalAPI.Controllers.ProfileController.Post(MovieJournalDAL.Model.Profile)">
             <summary>
             Creates a Profile in the Database
