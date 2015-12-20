@@ -22,7 +22,6 @@ namespace MovieJournalAPI.Repository
 
         private ProfileRepository profileRepo;
 
-
         public ProfileRepository GetProfileRepository()
         {
             if (profileRepo == null)
