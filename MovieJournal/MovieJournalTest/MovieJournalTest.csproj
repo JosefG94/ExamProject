@@ -59,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MovieOnListTest.cs" />
     <Compile Include="TMDBGatewayTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieJournalBLL\MovieJournalBLL.csproj">
+      <Project>{03315773-e23b-4ccc-9a2a-2032c77a3c89}</Project>
+      <Name>MovieJournalBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieJournalDTO\MovieJournalDTO.csproj">
       <Project>{9ea45315-c6f1-471f-983b-e3f42de30e5d}</Project>
       <Name>MovieJournalDTO</Name>
@@ -74,6 +79,10 @@
     <ProjectReference Include="..\MovieJournalGateway\MovieJournalGateway.csproj">
       <Project>{6ee71c6b-8a94-4d7d-bc11-fdd0be7206ee}</Project>
       <Name>MovieJournalGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieJournal\MovieJournal.csproj">
+      <Project>{213a06ab-af90-4b51-a1f0-45b8a742b9e3}</Project>
+      <Name>MovieJournal</Name>
     </ProjectReference>
     <ProjectReference Include="..\TMDBGateway\TMDBGateway.csproj">
       <Project>{f181cff2-19de-4a36-8df6-f97d76cf62e6}</Project>
