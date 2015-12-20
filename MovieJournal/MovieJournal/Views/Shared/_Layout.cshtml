@@ -12,20 +12,20 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("MovieJournal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @if(User.Identity.IsAuthenticated)
-                {
+
+               
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("My journal", "MyJournal", "Profile")</li>
+                    <center>
+                        <form action="/profile?userName=">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            <span><input type="text" style="background-color:white" name="userName" class="search rounded" placeholder="Search for profile..."></span>
+                        </form>
+                    </center>
                 </ul>
-                }
+
                 @RenderPage("~/Views/Shared/_LoginLayout.cshtml")
             </div>
         </div>
@@ -34,10 +34,12 @@
     <div class="navbar navbar-default navbar-top">
         <div class="container">
             <div class="navbar-collapse collapse">
-                    <form action="/home/search/">
+                    <center>
+                        <form action="/home/search/">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        <span><input type="text" name="query" class="search rounded" placeholder="Search..."></span>
+                        <span><input type="text" name="query" class="search rounded" placeholder="Search for movies..."></span>
                     </form>
+                </center>
             </div>
         </div>
     </div>

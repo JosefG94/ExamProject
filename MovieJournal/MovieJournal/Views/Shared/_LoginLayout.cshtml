@@ -1,6 +1,7 @@
 ﻿<ul class="nav navbar-nav navbar-right">
-   @if(User.Identity.Name=="AdminUser")
-    {
+   @if (User.Identity.IsAuthenticated)
+   {
+        <li>@Html.ActionLink("My Movie Journal", "MyJournal", "Profile")</li>
         <li>@Html.ActionLink("Sign Out", "SignOut", "Account")</li>
     }
     else
