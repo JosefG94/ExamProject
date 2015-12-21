@@ -57,7 +57,7 @@ namespace MovieJournalAPI.Models
                 roleManager.Create(UserRole);
 
                 // Creates the profile of the admin before creating logon
-                Profile AdminProfile = new Profile() { Name = "Josef Gharib", UserName = "AdminUser" };
+                Profile AdminProfile = new Profile() { Name = "David Davidsen", UserName = "AdminUser" };
 
                 // Creates the Admin with a User name of "AdminUser" and password of "pass123"
                 var CreateAdminUser = new ApplicationUser() { UserName = AdminProfile.UserName, Profile = AdminProfile };
