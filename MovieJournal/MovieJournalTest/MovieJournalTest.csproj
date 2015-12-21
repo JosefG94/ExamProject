@@ -60,7 +60,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="MovieOnListTest.cs" />
-    <Compile Include="TMDBGatewayTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MovieJournalAPI.Models;
+using MovieJournalAPI.Repository;
 
 namespace MovieJournalDAL.Repository
 {
-   public class MovieOnListRepository
+   public class MovieOnListRepository : IRepository<MovieOnList>
     {
         public IEnumerable<MovieOnList> ReadAll()
         {

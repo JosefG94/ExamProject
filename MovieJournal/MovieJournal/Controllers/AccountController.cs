@@ -22,6 +22,7 @@ namespace MovieJournal.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterModel model)
         {
             if (!ModelState.IsValid)
@@ -36,8 +37,6 @@ namespace MovieJournal.Controllers
             }
             catch (AuthenticationException ex)
             {
-                //No 200 OK result, what went wrong?
-                //HandleBadRequest(ex);
                     model.Taken = "User name already taken";
                     return View(model);
             }
@@ -52,6 +51,7 @@ namespace MovieJournal.Controllers
 
         // POST: Account/SignIn
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> SignIn(SignInModel model)
         {
             if (!ModelState.IsValid)
@@ -71,14 +71,10 @@ namespace MovieJournal.Controllers
                 FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMinutes(20), model.RememberMe, json, "/");
                 HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
                 Response.Cookies.Add(cookie);
-                //Request.Cookies();
                     return Redirect(redirectUrl ?? "/");
             }
             catch (AuthenticationException ex)
             {
-                //No 200 OK result, what went wrong?
-                //HandleBadRequest(ex);
-
                 if (!ModelState.IsValid)
                 {
                     return View(model);
