@@ -12,7 +12,7 @@ namespace MovieJournalAPI.Repository
         {
             using (var ctx = new ApplicationDbContext())
             {
-                return ctx.Profiles.ToList();
+                return ctx.Profiles.Include("MovieOnList").ToList();
             }
         }
         

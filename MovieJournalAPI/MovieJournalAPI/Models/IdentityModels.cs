@@ -27,6 +27,7 @@ namespace MovieJournalAPI.Models
         public ApplicationDbContext()
             : base("MovieJournalDB", throwIfV1Schema: false)
         {
+            this.Configuration.ProxyCreationEnabled = false;
             Database.SetInitializer(new MovieJournalDBInitialize());
         }
         public DbSet<Profile> Profiles { get; set; }
