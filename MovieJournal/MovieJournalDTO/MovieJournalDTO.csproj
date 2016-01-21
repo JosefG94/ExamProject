@@ -81,8 +81,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthModels\DeniedAttribute.cs" />
-    <Compile Include="AuthModels\JsonBadRequest.cs" />
     <Compile Include="AuthModels\RegisterModel.cs" />
     <Compile Include="AuthModels\SignInModel.cs" />
     <Compile Include="AuthModels\SignInResult.cs" />
